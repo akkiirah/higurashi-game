@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Higurashi_When_They_Cry_Hashiru.Entities;
+using Higurashi_When_They_Cry_Hashiru.System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -6,6 +8,14 @@ namespace Higurashi_When_They_Cry_Hashiru;
 
 public class GameManager : Game
 {
+    private const string ASSETNAME_SPRITESHEET = "spritesheet";
+
+    private Texture2D _spritesheet;
+    private GameState _gameState;
+    private EntityManager _entityManager;
+    private Keiichi _keiichi;
+    
+    
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
@@ -18,7 +28,6 @@ public class GameManager : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
 
         base.Initialize();
     }
@@ -26,26 +35,55 @@ public class GameManager : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        // TODO: use this.Content to load your game content here
+        _spritesheet = Content.Load<Texture2D>(ASSETNAME_SPRITESHEET);
+        
+        _entityManager = new EntityManager();
+        _gameState = GameState.Menu;
+        _keiichi = new Keiichi(_spritesheet);
+        
+        _entityManager.AddEntity(_keiichi);
     }
 
     protected override void Update(GameTime gameTime)
     {
+        KeyboardState keyboard = Keyboard.GetState();
+        
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        // TODO: Add your update logic here
+        if (keyboard.IsKeyDown(Keys.A))
+        {
+            _gameState = GameState.Menu;
+        }
+        
+        else if (keyboard.IsKeyDown(Keys.S)) _gameState = GameState.Transition; 
+        else if (keyboard.IsKeyDown(Keys.D))
+        {
+            _gameState = GameState.InGame;
+            _entityManager.Update(gameTime);
+        }
+
 
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
+        switch (_gameState)
+        {
+            case GameState.Menu:
+                GraphicsDevice.Clear(Color.Wheat);
+                break;
+            case GameState.Transition: 
+                break;
+            case GameState.InGame:
+                GraphicsDevice.Clear(Color.Black);
+                _spriteBatch.Begin();
+                _entityManager.Draw(_spriteBatch, gameTime);
+                _spriteBatch.End();
+                break;
+        }
 
         base.Draw(gameTime);
     }

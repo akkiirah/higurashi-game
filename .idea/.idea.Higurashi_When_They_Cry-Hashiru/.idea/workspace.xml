@@ -4,21 +4,18 @@
     <projectFile>Higurashi_When_They_Cry-Hashiru.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab8a4956-280f-427a-b2de-6b3a83635f9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.config/dotnet-tools.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Icon.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Icon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.manifest" afterDir="false" />
+    <list default="true" id="ab8a4956-280f-427a-b2de-6b3a83635f9c" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/Content/spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entities/IGameEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entities/Keiichi.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphics/Sprite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/EntityManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/GameState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.45510834",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -77,7 +75,16 @@
       <option name="presentableId" value="Default" />
       <updated>1707911421201</updated>
       <workItem from="1707911421883" duration="62000" />
+      <workItem from="1707911493374" duration="7819000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1707911515476</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707911515476</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +106,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

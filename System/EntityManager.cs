@@ -14,7 +14,6 @@ public class EntityManager
 
     public void Update(GameTime gameTime)
     {
-        Debug.WriteLine(_entities.Count);
         foreach (IGameEntity entity in _entities)
         {
             entity.Update(gameTime);
@@ -39,7 +38,6 @@ public class EntityManager
         foreach (IGameEntity entity in _entities)
         {
             entity.Draw(spriteBatch, gameTime);
-            Debug.WriteLine(entity);
         }
     }
 

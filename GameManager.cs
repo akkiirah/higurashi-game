@@ -52,16 +52,18 @@ public class GameManager : Game
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        if (keyboard.IsKeyDown(Keys.A))
+        switch (_gameState)
         {
-            _gameState = GameState.Menu;
-        }
-        
-        else if (keyboard.IsKeyDown(Keys.S)) _gameState = GameState.Transition; 
-        else if (keyboard.IsKeyDown(Keys.D))
-        {
-            _gameState = GameState.InGame;
-            _entityManager.Update(gameTime);
+            case GameState.Menu:
+                if (keyboard.IsKeyDown(Keys.D))
+                    _gameState = GameState.InGame;
+                break;
+            case GameState.InGame:
+                if (keyboard.IsKeyDown(Keys.A))
+                _gameState = GameState.Menu;
+                _entityManager.Update(gameTime);
+                break;
+            
         }
 
 

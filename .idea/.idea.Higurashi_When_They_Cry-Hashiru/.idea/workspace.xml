@@ -4,23 +4,21 @@
     <projectFile>Higurashi_When_They_Cry-Hashiru.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab8a4956-280f-427a-b2de-6b3a83635f9c" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/Content/spritesheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entities/IGameEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entities/Keiichi.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Graphics/Sprite.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/EntityManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/GameState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/System/PlayerState.cs" afterDir="false" />
+    <list default="true" id="ab8a4956-280f-427a-b2de-6b3a83635f9c" name="Changes" comment="render simple sprite">
+      <change afterPath="$PROJECT_DIR$/Graphics/SpriteAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphics/SpriteAnimationFrame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Higurashi_When_They_Cry-Hashiru/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Keiichi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Keiichi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Higurashi_When_They_Cry-Hashiru.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/EntityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/System/EntityManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707911421201</updated>
       <workItem from="1707911421883" duration="62000" />
-      <workItem from="1707911493374" duration="7819000" />
+      <workItem from="1707911493374" duration="13756000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1707911515476</created>
@@ -84,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707911515476</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="render simple sprite">
+      <created>1707925132549</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707925132549</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +112,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="render simple sprite" />
+    <option name="LAST_COMMIT_MESSAGE" value="render simple sprite" />
   </component>
 </project>

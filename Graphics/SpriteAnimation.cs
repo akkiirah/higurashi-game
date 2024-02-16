@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Higurashi_When_They_Cry_Hashiru.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Trex_Runner_Game.Graphics;
+namespace Higurashi_When_They_Cry_Hashiru.Graphics;
 
 public class SpriteAnimation
 {
@@ -64,12 +63,9 @@ public class SpriteAnimation
             {
                 if (ShouldLoop)
                     PlaybackProgress -= Duration;
-                
                 else
                     Stop();
             }
-                
-
         }
     }
 
@@ -89,6 +85,11 @@ public class SpriteAnimation
     public void Stop()
     {
         IsPlaying = false;
+        PlaybackProgress = Duration;
+    }
+    
+    public void ResetAnim()
+    {
         PlaybackProgress = 0;
     }
 

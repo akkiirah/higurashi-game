@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Higurashi_When_They_Cry_Hashiru.Graphics;
+namespace Higurashi_Game.Graphics;
 
 public class SpriteAnimation
 {
@@ -72,9 +72,8 @@ public class SpriteAnimation
     public void Draw(SpriteBatch spriteBatch, Vector2 position)
     {
         SpriteAnimationFrame frame = CurrentFrame;
-
-        if (frame != null)
-            frame.Sprite.Draw(spriteBatch, position);
+        
+        frame?.Sprite.Draw(spriteBatch, position);
     }
 
     public void Play()
@@ -104,6 +103,6 @@ public class SpriteAnimation
     public void Clear()
     {
         Stop();
-        _frames.Clear();
+        _frames?.Clear();
     }
 }

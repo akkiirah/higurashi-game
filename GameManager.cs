@@ -1,29 +1,33 @@
-﻿using System;
-using System.Diagnostics;
-using Higurashi_When_They_Cry_Hashiru.Entities;
-using Higurashi_When_They_Cry_Hashiru.System;
+﻿using System.Diagnostics;
+using Higurashi_Game.Entities;
+using Higurashi_Game.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Higurashi_When_They_Cry_Hashiru;
+namespace Higurashi_Game;
 
 public class GameManager : Game
 {
     public const int VIRTUAL_WINDOW_WIDTH = 1600;
     public const int VIRTUAL_WINDOW_HEIGHT = 900;
-    public const int WINDOW_WIDTH = 1280;
-    public const int WINDOW_HEIGHT = 720;
+    public const int WINDOW_WIDTH = 1600;
+    public const int WINDOW_HEIGHT = 900;
     public float scaleX;
     public float scaleY;
     private Matrix matrix;
 
     private const string ASSETNAME_SPRITESHEET = "spritesheet";
+    private const string ASSETNAME_TEST = "test1 - Kopie";
+    private const string ASSETNAME_BG = "bgtest";
     
-    public const int CHARACTER_START_POS_Y = VIRTUAL_WINDOW_HEIGHT - 60;
+    public const int CHARACTER_START_POS_Y = VIRTUAL_WINDOW_HEIGHT - 188;
     public const int KEIICHI_START_POS_X = 1;
 
     private Texture2D _spritesheet;
+    private Texture2D _test;
+    private Texture2D _bg;
+    
     private GameState _gameState;
     private EntityManager _entityManager;
     private Keiichi _keiichi;
@@ -62,11 +66,13 @@ public class GameManager : Game
         
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _spritesheet = Content.Load<Texture2D>(ASSETNAME_SPRITESHEET);
+        _test = Content.Load<Texture2D>(ASSETNAME_TEST);
+        _bg = Content.Load<Texture2D>(ASSETNAME_BG);
         
         _entityManager = new EntityManager();
         _gameState = GameState.Menu;
         
-        _keiichi = new Keiichi(_spritesheet, keiichiStartPos);
+        _keiichi = new Keiichi(_test , keiichiStartPos);
         //_keiichi.jumpComplete += keiichi_JumpComplete;
         
         _inputManager = new InputManager(_keiichi);
@@ -114,6 +120,7 @@ public class GameManager : Game
             case GameState.InGame:
                 GraphicsDevice.Clear(Color.Black);
                 _spriteBatch.Begin(transformMatrix: matrix);
+                _spriteBatch.Draw(_bg, new Rectangle(0, 0, VIRTUAL_WINDOW_WIDTH, VIRTUAL_WINDOW_HEIGHT), Color.White);
                 _entityManager.Draw(_spriteBatch, gameTime);
                 _spriteBatch.End();
                 break;

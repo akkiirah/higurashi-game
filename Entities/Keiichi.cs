@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Diagnostics;
-using Higurashi_When_They_Cry_Hashiru.Graphics;
-using Higurashi_When_They_Cry_Hashiru.System;
+using Higurashi_Game.Graphics;
+using Higurashi_Game.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Higurashi_When_They_Cry_Hashiru.Entities;
+namespace Higurashi_Game.Entities;
 
 public class Keiichi : IGameEntity
 {
     private const int IDLE_SPRITE_POS_X = 0;
-    private const int IDLE_SPRITE_POS_Y = 0;
-    private const int WALK_SPRITE_POS_Y = 113*2;
-    private const int JUMP_SPRITE_POS_Y = 113*3;
-    private const int SPRITE_WIDTH = 85;
-    private const int SPRITE_HEIGHT = 113;
-    private const float IDLE_ANIMATION_TIME = 1 / 8f;
-    private const float RUN_ANIMATION_TIME = 1 / 12f;
-    private const float JUMP_ANIMATION_TIME = 1 / 10f;
-    private const int IDLE_ANIMATION_TOTAL_FRAMES = 4;
-    private const int WALK_ANIMATION_TOTAL_FRAMES = 6;
+    private const int IDLE_SPRITE_POS_Y = 152;
+    private const int WALK_SPRITE_POS_Y = 0;
+    private const int JUMP_SPRITE_POS_Y = 152; //113 * 3
+    private const int SPRITE_WIDTH = 92; // 85 // 56
+    private const int SPRITE_HEIGHT = 152; // 113 // 150
+    private const float IDLE_ANIMATION_TIME = 1 / 2f;
+    private const float RUN_ANIMATION_TIME = 1 / 5f;
+    private const float JUMP_ANIMATION_TIME = 1 / 2f;
+    private const int IDLE_ANIMATION_TOTAL_FRAMES = 5;
+    private const int WALK_ANIMATION_TOTAL_FRAMES = 7;
     private const int JUMP_ANIMATION_TOTAL_FRAMES = 6;
     private const float GRAVITY = 1600f;
     private const float JUMP_START_VELOCITY = -680f;
@@ -40,6 +40,7 @@ public class Keiichi : IGameEntity
     private SpriteAnimation _idle;
     public Sprite[] _walkSprites;
     private SpriteAnimation _walk;
+    private SpriteAnimation _run;
     public Sprite[] _jumpSprites;
     private SpriteAnimation _jump;
     
@@ -55,6 +56,7 @@ public class Keiichi : IGameEntity
         _idle = new SpriteAnimation();
         _walkSprites = new Sprite[WALK_ANIMATION_TOTAL_FRAMES];
         _walk = new SpriteAnimation();
+        _run = new SpriteAnimation();
         _jumpSprites = new Sprite[JUMP_ANIMATION_TOTAL_FRAMES];
         _jump = new SpriteAnimation();
         
@@ -80,6 +82,7 @@ public class Keiichi : IGameEntity
 
         CreateAnimation(_idle, _idleSprites, IDLE_ANIMATION_TIME);
         CreateAnimation(_walk, _walkSprites, RUN_ANIMATION_TIME);
+        CreateAnimation(_run, _walkSprites, RUN_ANIMATION_TIME * 2);
         CreateAnimation(_jump, _jumpSprites, JUMP_ANIMATION_TIME);
         _jump.ShouldLoop = false;      
         _idle.Play();
@@ -102,6 +105,7 @@ public class Keiichi : IGameEntity
                 break;
             case PlayerState.Walking:
                 _walk.Update(gameTime);
+                Position = new Vector2(Position.X + 100 * (float)gameTime.ElapsedGameTime.TotalSeconds, Position.Y);
                 if(!keyboard.IsKeyDown(Keys.D))
                     State = PlayerState.Idle;
                 break;
@@ -176,6 +180,8 @@ public class Keiichi : IGameEntity
     {
         if (State != PlayerState.Jumping || (_startPosY - Position.Y) < MIN_JUMP_HEIGHT)
             return false;
+        
+        _jump.Play();
         
         _verticalVelocity = _verticalVelocity < CANCEL_JUMP_VELOCITY ? CANCEL_JUMP_VELOCITY : 0;
         

@@ -1,2 +1,2 @@
-﻿using var game = new Higurashi_When_They_Cry_Hashiru.GameManager();
+﻿using var game = new Higurashi_Game.GameManager();
 game.Run();

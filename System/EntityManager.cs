@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
-using Higurashi_When_They_Cry_Hashiru.Entities;
+using Higurashi_Game.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Higurashi_When_They_Cry_Hashiru.System;
+namespace Higurashi_Game.System;
 
 public class EntityManager
 {

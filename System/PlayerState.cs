@@ -1,4 +1,4 @@
-﻿namespace Higurashi_When_They_Cry_Hashiru.System;
+﻿namespace Higurashi_Game.System;
 
 public enum PlayerState
 {

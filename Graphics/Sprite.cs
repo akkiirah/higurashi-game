@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Higurashi_When_They_Cry_Hashiru.Graphics;
+namespace Higurashi_Game.Graphics;
 
 public class Sprite
 {
